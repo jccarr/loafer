@@ -98,10 +98,7 @@ func (a *SlackApp) checkSlackSecret(signing string, ts string, body string) bool
 	tested := hmac.New(sha256.New, []byte(signed))
 	tested.Write([]byte(data))
 	own := strings.Join([]string{"v0", hex.EncodeToString(tested.Sum(nil))}, "=")
-	if own == signing {
-		return true
-	}
-	return false
+	return own == signing
 }
 
 // interaction - Slack App interactions handler
@@ -273,7 +270,7 @@ func (a *SlackApp) ServeApp(port uint16, cb func()) {
 	http.HandleFunc(fmt.Sprintf("/%s/events", a.opts.Prefix), a.events)
 	http.HandleFunc(fmt.Sprintf("/%s/install", a.opts.Prefix), a.appInstall)
 	http.HandleFunc(fmt.Sprintf("/%s/commands", a.opts.Prefix), a.commands)
-	http.HandleFunc(fmt.Sprintf("/%s/", a.opts.Prefix), a.interactions)
+	http.HandleFunc(fmt.Sprintf("/%s/interactions", a.opts.Prefix), a.interactions)
 	if cb != nil {
 		go cb()
 	}

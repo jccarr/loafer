@@ -81,6 +81,7 @@ type SlackModalSelect struct {
 	BlockID  string               `json:"block_id,omitempty"`
 	Element  *SlackBlockAccessory `json:"element,omitempty"`
 	Label    *SlackBlockText      `json:"label,omitempty"`
+	Dispatch bool                 `json:"dispatch_action,omitempty"`
 }
 
 // SlackBlockButton - Slack Button action
@@ -132,12 +133,13 @@ type SlackInteractionTeam struct {
 
 // SlackInteractionAction - Slack Interaction Action
 type SlackInteractionAction struct {
-	ActionID string          `json:"action_id,omitempty"`
-	BlockID  string          `json:"block_id,omitempty"`
-	Text     *SlackBlockText `json:"text,omitempty"`
-	Value    string          `json:"value,omitempty"`
-	Type     string          `json:"type,omitempty"`
-	ActionTS string          `json:"action_ts,omitempty"`
+	ActionID       string           `json:"action_id,omitempty"`
+	BlockID        string           `json:"block_id,omitempty"`
+	Text           *SlackBlockText  `json:"text,omitempty"`
+	Value          string           `json:"value,omitempty"`
+	Type           string           `json:"type,omitempty"`
+	ActionTS       string           `json:"action_ts,omitempty"`
+	SelectedOption SlackInputOption `json:"selected_option,omitempty"`
 }
 
 // SlackInteractionEvent - Slack Interaction Event

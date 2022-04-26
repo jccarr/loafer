@@ -78,7 +78,7 @@ func MakeSlackModalTextInput(label string, placeholder string, actionID string, 
 }
 
 // MakeSlackModalStaticSelectInput - Make slack static select input field
-func MakeSlackModalStaticSelectInput(label string, placeholder string, options []SlackInputOption, initialOption *SlackInputOption, actionID string, isMulti bool, isOptional bool) SlackModalSelect {
+func MakeSlackModalStaticSelectInput(label string, placeholder string, options []SlackInputOption, initialOption *SlackInputOption, actionID string, isMulti bool, isOptional bool, dispatchAction bool) SlackModalSelect {
 	selectType := "static_select"
 	isEmojiSupported := true
 	if isMulti {
@@ -88,6 +88,7 @@ func MakeSlackModalStaticSelectInput(label string, placeholder string, options [
 		Type:     "input",
 		BlockID:  actionID,
 		Optional: isOptional,
+		Dispatch: dispatchAction,
 		Element: &SlackBlockAccessory{
 			Type: selectType,
 			Placeholder: &SlackBlockText{

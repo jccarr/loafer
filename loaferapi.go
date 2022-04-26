@@ -99,7 +99,7 @@ func OpenView(view SlackModal, triggerID string, token string) error {
 }
 
 // UpdateView - Update a view in slack
-func UpdateView(view SlackInteractionView, viewID string, token string) error {
+func UpdateView(view SlackModal, viewID string, token string) error {
 	jsonView, err := json.Marshal(view)
 	if err != nil {
 		return err

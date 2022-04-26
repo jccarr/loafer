@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	loafer "github.com/arkjxu/loafer"
+	loafer "github.com/jccarr/loafer"
 )
 
 func handleDevCommand(ctx *loafer.SlackContext) {
