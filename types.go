@@ -205,6 +205,7 @@ type SlackInputElement struct {
 	IsDispatchAction bool                 `json:"dispatch_action,omitempty"`
 	Element          *SlackBlockAccessory `json:"element,omitempty"`
 	Label            *SlackBlockText      `json:"label,omitempty"`
+	Optional         bool                 `json:"optional,omitempty"`
 }
 
 // SlackActionSelect - Slack action select list
