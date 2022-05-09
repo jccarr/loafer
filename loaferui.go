@@ -60,12 +60,14 @@ func MakeSlackActions(actions ISlackBlockKitUI) SlackBlockActions {
 }
 
 // MakeSlackModalTextInput - Make slack modal input field
-func MakeSlackModalTextInput(label string, placeholder string, actionID string, isMultiline bool, isDispatch bool, maxLength uint16) SlackInputElement {
+func MakeSlackModalTextInput(label string, placeholder string, actionID string, isMultiline bool,
+                             isDispatch bool, maxLength uint16, isOptional bool) SlackInputElement {
 	isEmojiSupported := true
 	return SlackInputElement{
 		Type:             "input",
 		BlockID:          actionID,
 		IsDispatchAction: isDispatch,
+		Optional: isOptional,
 		Element: &SlackBlockAccessory{
 			Type:        "plain_text_input",
 			IsMultiline: isMultiline,

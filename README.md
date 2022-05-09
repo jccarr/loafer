@@ -201,7 +201,7 @@ Returns:
 
 Open a modal within slack
 
-### UpdateView(view SlackInteractionView, viewID string, token string) error
+### UpdateView(view SlackModal, viewID string, token string) error
 
 Returns:
 * `err` error
@@ -282,7 +282,7 @@ Returns:
 
 Make a Block Kit actions section
 
-### MakeSlackModalTextInput(label string, placeholder string, actionID string, isMultiline bool, isDispatch bool, maxLength uint16) SlackInputElement
+### MakeSlackModalTextInput(label string, placeholder string, actionID string, isMultiline bool, isDispatch bool, maxLength uint16, isOptional bool) SlackInputElement
 
 Returns:
 * `input` SlackInputElement
